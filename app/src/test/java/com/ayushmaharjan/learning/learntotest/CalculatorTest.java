@@ -5,9 +5,6 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by ayush on 2/19/16.
- */
 public class CalculatorTest {
 
     private Calculator mCalculator;
