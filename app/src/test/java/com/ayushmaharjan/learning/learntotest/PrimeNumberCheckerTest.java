@@ -27,7 +27,7 @@ public class PrimeNumberCheckerTest {
         this.expectedResult = expectedResult;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "{index}: prime({0})={1}")
     public static Collection primeNumbers() {
         return Arrays.asList(new Object[][]{
                 {2, true},
