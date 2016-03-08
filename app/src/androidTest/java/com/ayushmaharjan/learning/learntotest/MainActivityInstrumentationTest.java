@@ -17,6 +17,7 @@ import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
+import static com.ayushmaharjan.learning.learntotest.CustomActions.setTextInTextView;
 import static com.ayushmaharjan.learning.learntotest.CustomMatchers.withStatusText;
 
 @RunWith(AndroidJUnit4.class)
@@ -51,7 +52,12 @@ public class MainActivityInstrumentationTest {
     @Test
     public void checkIfTextViewCanBeModified() {
         String expectedText = "Hello, " + STRING_TO_BE_TYPED + "!";
-        onView(withId(R.id.textView)).perform(replaceText(expectedText));
+
+        //Error when trying to alter text using replaceText/typeText
+        //onView(withId(R.id.textView)).perform(replaceText(expectedText));
+
+        //Custom ViewAction setTextInTextView() created to update text in text view
+        onView(withId(R.id.textView)).perform(setTextInTextView(expectedText)).check(matches(withText(expectedText)));
     }
 
 }
