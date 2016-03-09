@@ -18,6 +18,7 @@ import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static com.ayushmaharjan.learning.learntotest.CustomActions.setTextInTextView;
+import static com.ayushmaharjan.learning.learntotest.CustomMatchers.withButtonText;
 import static com.ayushmaharjan.learning.learntotest.CustomMatchers.withStatusText;
 
 @RunWith(AndroidJUnit4.class)
@@ -33,12 +34,26 @@ public class MainActivityInstrumentationTest {
     @Test
     public void sayHello(){
 
-        onView(withId(R.id.editText)).perform(typeText(STRING_TO_BE_TYPED), closeSoftKeyboard()); //line 1
+        //Type "Peter" into the edit text
+        onView(withId(R.id.editText)).perform(typeText(STRING_TO_BE_TYPED), closeSoftKeyboard());
 
-        onView(withText("Say hello!")).perform(click()); //line 2
+        //Click on 'Say hello!' button
+        onView(withText("Say hello!")).perform(click());
 
+        //Expected text is "Hello, Peter!"
         String expectedText = "Hello, " + STRING_TO_BE_TYPED + "!";
-        onView(withId(R.id.textView)).check(matches(withStatusText(expectedText))); //line 3
+
+        //Custom ViewMatcher withStatusText() in action
+        onView(withId(R.id.textView)).check(matches(withStatusText(expectedText)));
+
+        //Custom ViewMatcher withButtonText() in action
+        onView(withId(R.id.sayHelloButton)).check(matches(withButtonText("Say hello!")));
+
+        //Works as well because Button extends TextView
+        onView(withId(R.id.sayHelloButton)).check(matches(withStatusText("Say hello!")));
+
+        //This test fails because matcher does not match the selected view
+        //onView(withId(R.id.textView)).check(matches(withButtonText(expectedText)));
 
     }
 

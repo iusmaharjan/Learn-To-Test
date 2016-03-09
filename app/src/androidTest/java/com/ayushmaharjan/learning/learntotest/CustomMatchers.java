@@ -2,6 +2,7 @@ package com.ayushmaharjan.learning.learntotest;
 
 import android.support.test.espresso.matcher.BoundedMatcher;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import org.hamcrest.Description;
@@ -22,6 +23,26 @@ public class CustomMatchers {
 
             @Override
             protected boolean matchesSafely(TextView item) {
+                if (Pattern.matches(expected, item.getText().toString())) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        };
+    }
+
+    public static Matcher<View> withButtonText(final String expected) {
+
+        return new BoundedMatcher<View, Button>(Button.class) {
+
+            @Override
+            public void describeTo(Description description) {
+                description.appendText("Looking for " + expected);
+            }
+
+            @Override
+            protected boolean matchesSafely(Button item) {
                 if (Pattern.matches(expected, item.getText().toString())) {
                     return true;
                 } else {
