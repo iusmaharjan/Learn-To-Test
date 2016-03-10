@@ -1,5 +1,6 @@
 package com.ayushmaharjan.learning.learntotest;
 
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.Timeout;
@@ -13,12 +14,13 @@ public class HasGlobalTimeout {
     @Rule
     public Timeout globalTimeout = Timeout.seconds(10); // 10 seconds max per method tested
 
-    @Test
+    @Test(timeout = 10000)
     public void testSleepForTooLong() throws Exception {
         log += "ran1";
-        Thread.sleep(100_000); // sleep for 100 seconds
+        Thread.sleep(5_000); // sleep for 100 seconds
     }
 
+    @Ignore
     @Test
     public void testBlockForever() throws Exception {
         log += "ran2";
