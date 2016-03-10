@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
+import org.hamcrest.TypeSafeMatcher;
 
 import java.util.regex.Pattern;
 
@@ -48,6 +49,20 @@ public class CustomMatchers {
                 } else {
                     return false;
                 }
+            }
+        };
+    }
+
+    public static Matcher<String> hasMinimumTextSize(final int size) {
+        return new TypeSafeMatcher<String>() {
+            @Override
+            protected boolean matchesSafely(String item) {
+                return item.length()>=size;
+            }
+
+            @Override
+            public void describeTo(Description description) {
+
             }
         };
     }

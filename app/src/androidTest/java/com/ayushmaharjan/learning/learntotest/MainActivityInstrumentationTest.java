@@ -18,6 +18,7 @@ import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static com.ayushmaharjan.learning.learntotest.CustomActions.setTextInTextView;
+import static com.ayushmaharjan.learning.learntotest.CustomMatchers.hasMinimumTextSize;
 import static com.ayushmaharjan.learning.learntotest.CustomMatchers.withButtonText;
 import static com.ayushmaharjan.learning.learntotest.CustomMatchers.withStatusText;
 
@@ -73,6 +74,17 @@ public class MainActivityInstrumentationTest {
 
         //Custom ViewAction setTextInTextView() created to update text in text view
         onView(withId(R.id.textView)).perform(setTextInTextView(expectedText)).check(matches(withText(expectedText)));
+    }
+
+    @Test
+    public void testStringSize() {
+        onView(withId(R.id.editText)).perform(typeText(STRING_TO_BE_TYPED), closeSoftKeyboard());
+
+        //Testing Custom Matcher for ViewMatcher.withText(final Matcher<String> stringMatcher)
+        onView(withId(R.id.textView)).check(matches(withText(hasMinimumTextSize(5))));
+
+        // Failing case
+        //onView(withId(R.id.textView)).check(matches(withText(hasMinimumTextSize(50))));
     }
 
 }
