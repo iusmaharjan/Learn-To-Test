@@ -66,4 +66,20 @@ public class CustomMatchers {
             }
         };
     }
+
+    public static Matcher<View> doesContainInfoText() {
+        return new BoundedMatcher<View, TextView>(TextView.class) {
+            @Override
+            public void describeTo(Description description) {
+                description.appendText("Matching whether text contains some value or not");
+
+            }
+
+            @Override
+            protected boolean matchesSafely(TextView item) {
+                return item.getText().toString().equals("Successfully loaded data")
+                        || item.getText().toString().equals("Could not load data");
+            }
+        };
+    }
 }

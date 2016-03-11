@@ -1,9 +1,12 @@
 package com.ayushmaharjan.learning.learntotest;
 
+import android.content.Context;
+import android.support.test.InstrumentationRegistry;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.test.suitebuilder.annotation.LargeTest;
 
+import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
@@ -85,6 +88,15 @@ public class MainActivityInstrumentationTest {
 
         // Failing case
         //onView(withId(R.id.textView)).check(matches(withText(hasMinimumTextSize(50))));
+    }
+
+    @Rule
+    public ActivityTestRule<SecondActivity> activityActivityTestRule = new ActivityTestRule<SecondActivity>(SecondActivity.class, true, false);
+
+    @Test
+    public void initializeActivity() {
+        Context targetContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+        activityActivityTestRule.launchActivity(SecondActivity.launchActivity(targetContext, 10));
     }
 
 }
