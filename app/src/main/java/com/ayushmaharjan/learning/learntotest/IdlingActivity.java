@@ -40,7 +40,7 @@ public class IdlingActivity extends AppCompatActivity {
 
     public void btnClick(View view) {
         AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
-        asyncHttpClient.setTimeout(5000);
+        asyncHttpClient.setTimeout(15000);
 
         asyncHttpClient.get(this, URL, new AsyncHttpResponseHandler() {
             @Override

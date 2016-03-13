@@ -1,6 +1,7 @@
 package com.ayushmaharjan.learning.learntotest;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
@@ -35,6 +36,7 @@ public class MainActivityInstrumentationTest {
     public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(
             MainActivity.class);
 
+    @Ignore
     @Test
     public void sayHello(){
 
@@ -68,6 +70,7 @@ public class MainActivityInstrumentationTest {
         onView(withText("Learn to Test")).perform(typeText("Hi"));
     }
 
+    @Ignore
     @Test
     public void checkIfTextViewCanBeModified() {
         String expectedText = "Hello, " + STRING_TO_BE_TYPED + "!";
@@ -79,6 +82,7 @@ public class MainActivityInstrumentationTest {
         onView(withId(R.id.textView)).perform(setTextInTextView(expectedText)).check(matches(withText(expectedText)));
     }
 
+    @Ignore
     @Test
     public void testStringSize() {
         onView(withId(R.id.editText)).perform(typeText(STRING_TO_BE_TYPED), closeSoftKeyboard());
@@ -96,7 +100,30 @@ public class MainActivityInstrumentationTest {
     @Test
     public void initializeActivity() {
         Context targetContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        activityActivityTestRule.launchActivity(SecondActivity.launchActivity(targetContext, 10));
+        activityActivityTestRule.launchActivity(SecondActivity.launchActivity(targetContext, "Test"));
+        onView(withId(R.id.textView1)).check(matches(withText("Test")));
     }
 
+    @Ignore
+    @Test
+    public void startSecondActivityFromFirst() {
+        activityActivityTestRule.launchActivity(new Intent(mActivityRule.getActivity(), SecondActivity.class));
+        activityActivityTestRule.getActivity().finish();
+        onView(withId(R.id.button)).perform(click());
+    }
+
+    @Test
+    public void demonstrateIntent() {
+        Intent intent = new Intent();
+        intent.putExtra("EXTRA", "Test");
+        activityActivityTestRule.launchActivity(intent);
+        String value = "Test";
+        onView(withId(R.id.textView1)).check(matches(withText(value)));
+    }
+
+    @Test
+    public void launchActivityButton() {
+        onView(withId(R.id.launchSecondActivityButton)).perform(click());
+        onView(withId(R.id.textView1)).check(matches(withText("Test")));
+    }
 }

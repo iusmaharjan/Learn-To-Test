@@ -22,4 +22,12 @@ public class MainActivity extends AppCompatActivity {
         textView.setText("Hello, " + editText.getText().toString() + "!");
     }
 
+    public void launchSecondActivity(View v) {
+        startActivity(SecondActivity.launchActivity(this, "Test"));
+    }
+
+    public void launchIdlingResourceActivity(View v) {
+        startActivity(new Intent(this, IdlingActivity.class));
+    }
+
 }

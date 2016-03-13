@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -11,14 +13,21 @@ public class SecondActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        String value = getIntent().getExtras().getString(KEY);
+
+        ((TextView)findViewById(R.id.textView1)).setText(value);
     }
 
-    public static final String KEY = "key";
+    public static final String KEY = "EXTRA";
 
-    public static Intent launchActivity(Context context, int value) {
+    public static Intent launchActivity(Context context, String value) {
         Intent intent = new Intent(context, SecondActivity.class);
         Bundle params = new Bundle();
-        params.putInt(KEY, value);
+        params.putString(KEY, value);
+        intent.putExtra(KEY, value);
         return intent;
     }
 }
