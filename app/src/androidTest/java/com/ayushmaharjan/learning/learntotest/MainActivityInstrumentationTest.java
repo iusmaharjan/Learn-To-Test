@@ -1,8 +1,13 @@
 package com.ayushmaharjan.learning.learntotest;
 
+import android.app.Activity;
+import android.app.Instrumentation;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.support.test.InstrumentationRegistry;
+import android.support.test.espresso.intent.Intents;
+import android.support.test.espresso.intent.matcher.IntentMatchers;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.test.suitebuilder.annotation.LargeTest;
@@ -19,12 +24,18 @@ import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard
 import static android.support.test.espresso.action.ViewActions.replaceText;
 import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.intent.Intents.intending;
+import static android.support.test.espresso.intent.matcher.ComponentNameMatchers.hasShortClassName;
+import static android.support.test.espresso.intent.matcher.IntentMatchers.hasComponent;
+import static android.support.test.espresso.intent.matcher.IntentMatchers.isInternal;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static com.ayushmaharjan.learning.learntotest.CustomActions.setTextInTextView;
 import static com.ayushmaharjan.learning.learntotest.CustomMatchers.hasMinimumTextSize;
 import static com.ayushmaharjan.learning.learntotest.CustomMatchers.withButtonText;
 import static com.ayushmaharjan.learning.learntotest.CustomMatchers.withStatusText;
+import static org.hamcrest.Matchers.not;
+import static org.hamcrest.core.AllOf.allOf;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest

@@ -40,4 +40,18 @@
         android:text="Idling Resource"
         android:onClick="launchIdlingResourceActivity"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/pickContact"
+        android:text="Pick Contact"
+        android:onClick="pickContact"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/launchDialerButton"
+        android:text="Launch Dialer"
+        android:onClick="launchDialer"/>
+
 </LinearLayout>
