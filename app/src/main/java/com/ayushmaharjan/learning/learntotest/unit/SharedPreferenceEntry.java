@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.ayushmaharjan.learning.learntotest;
+package com.ayushmaharjan.learning.learntotest.unit;
 
 import java.util.Calendar;
 

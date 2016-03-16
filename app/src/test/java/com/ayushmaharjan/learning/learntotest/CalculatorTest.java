@@ -1,5 +1,7 @@
 package com.ayushmaharjan.learning.learntotest;
 
+import com.ayushmaharjan.learning.learntotest.unit.Calculator;
+
 import org.junit.Before;
 import org.junit.Test;
 

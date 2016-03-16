@@ -8,7 +8,8 @@ import android.support.test.espresso.intent.Intents;
 import android.support.test.espresso.intent.matcher.IntentMatchers;
 import android.support.test.espresso.intent.rule.IntentsTestRule;
 import android.support.test.runner.AndroidJUnit4;
-import android.test.suitebuilder.annotation.SmallTest;
+
+import com.ayushmaharjan.learning.learntotest.intenttest.ContactsActivity;
 
 import org.junit.Before;
 import org.junit.Rule;

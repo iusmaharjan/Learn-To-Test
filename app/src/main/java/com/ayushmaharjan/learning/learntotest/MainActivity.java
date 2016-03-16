@@ -8,6 +8,10 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.ayushmaharjan.learning.learntotest.idling.IdlingActivity;
+import com.ayushmaharjan.learning.learntotest.intenttest.ContactsActivity;
+import com.ayushmaharjan.learning.learntotest.intenttest.SecondActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final int REQUEST_PICK_CONTACT = 15;

@@ -1,4 +1,4 @@
-package com.ayushmaharjan.learning.learntotest;
+package com.ayushmaharjan.learning.learntotest.unit;
 
 public class PrimeNumberChecker {
     public Boolean validate(final Integer primeNumber) {

@@ -1,4 +1,4 @@
-package com.ayushmaharjan.learning.learntotest;
+package com.ayushmaharjan.learning.learntotest.idling;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
+import com.ayushmaharjan.learning.learntotest.R;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 

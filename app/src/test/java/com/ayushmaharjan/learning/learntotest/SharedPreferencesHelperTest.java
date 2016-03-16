@@ -28,7 +28,9 @@ import org.mockito.runners.MockitoJUnitRunner;
 import android.content.SharedPreferences;
 import android.test.suitebuilder.annotation.SmallTest;
 
-import java.io.IOException;
+import com.ayushmaharjan.learning.learntotest.unit.SharedPreferenceEntry;
+import com.ayushmaharjan.learning.learntotest.unit.SharedPreferencesHelper;
+
 import java.util.Calendar;
 
 

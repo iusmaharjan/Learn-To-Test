@@ -18,12 +18,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SecondActivity" />
+        <activity android:name=".intenttest.SecondActivity" />
         <activity
-            android:name=".IdlingActivity"
+            android:name=".idling.IdlingActivity"
             android:label="@string/title_activity_idling"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ContactsActivity"></activity>
+        <activity android:name=".intenttest.ContactsActivity"></activity>
     </application>
 
 </manifest>

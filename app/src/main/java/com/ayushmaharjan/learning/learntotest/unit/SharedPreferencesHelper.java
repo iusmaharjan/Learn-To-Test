@@ -14,11 +14,10 @@
  * limitations under the License.
  */
 
-package com.ayushmaharjan.learning.learntotest;
+package com.ayushmaharjan.learning.learntotest.unit;
 
 import android.content.SharedPreferences;
 
-import java.io.IOException;
 import java.util.Calendar;
 
 /**
